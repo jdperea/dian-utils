@@ -21,11 +21,10 @@ class TestVerifierFunctions(unittest.TestCase):
 
     def test_is_valid_nit(self):
         self.assertTrue(is_valid_nit(900123456))
-        self.assertTrue(is_valid_nit(123456789012345))
+        self.assertFalse(is_valid_nit(123456789))
         self.assertFalse(is_valid_nit("ABC123456"))
         self.assertFalse(is_valid_nit(999999999))
         self.assertFalse(is_valid_nit(888888888))
-        print("is valid?", is_valid_nit(123456789))
         self.assertFalse(is_valid_nit(000000000))
         self.assertFalse(is_valid_nit(1234))
 
