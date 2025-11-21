@@ -1,0 +1,84 @@
+Metadata-Version: 2.4
+Name: dian-utils
+Version: 1.0.1
+Summary: Validador de NIT colombiano con detección de patrones sospechosos
+Author: Juan Perea
+License: MIT License
+        
+        Copyright (c) [2025] [[@Juan Perea](https://github.com/jdperea)]
+        
+        Permission is hereby granted, free of charge, to any person obtaining a copy
+        of this software and associated documentation files (the "Software"), to deal
+        in the Software without restriction, including without limitation the rights
+        to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+        copies of the Software, and to permit persons to whom the Software is
+        furnished to do so, subject to the following conditions:
+        
+        The above copyright notice and this permission notice shall be included in all
+        copies or substantial portions of the Software.
+        
+        THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+        IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+        FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+        AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+        LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+        OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+        SOFTWARE.
+        
+Project-URL: Homepage, https://github.com/jdperea/dian-utils
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Dynamic: license-file
+
+# dian-utils
+
+Librería en Python para calcular el dígito de verificación del NIT/RUT según la DIAN en Colombia.
+
+Incluye utilidades para consultar códigos CIIU empaquetados en `dian_utils/data/ciiu.json`.
+
+Tomado del PDF de la resolución 000114 del 21-12-2020:
+`
+https://www.dian.gov.co/normatividad/Normatividad/Resoluci%C3%B3n%20000114%20de%2021-12-2020.pdf
+`
+
+## Instalación
+
+```bash
+pip install dian-utils
+```
+
+## Pruebas
+
+```bash
+python -m unittest discover tests
+```
+
+## Códigos CIIU
+
+Ejemplos de uso:
+
+```python
+from dian_utils import (
+    list_ciiu,
+    get_ciiu_by_id,
+    search_ciiu_by_prefix,
+    search_ciiu_by_name,
+)
+
+# Listar todo
+all_items = list_ciiu()
+
+# Buscar por id exacto
+item = get_ciiu_by_id('0111')
+
+# Buscar por prefijo de id
+items_pref = search_ciiu_by_prefix('011')
+
+# Buscar por nombre (insensible a acentos y mayúsculas)
+items_name = search_ciiu_by_name('cafe')  # encuentra "Cultivo de café"
+```
+
+## Licencia
+
+Este proyecto se encuentra bajo la [Licencia MIT](https://opensource.org/license/mit).
