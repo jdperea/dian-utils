@@ -1,6 +1,6 @@
 [project]
 name = "dian-utils"
-version = "1.0.0"
+version = "1.0.1"
 description = "Validador de NIT colombiano con detección de patrones sospechosos"
 authors = [{ name = "Juan Perea" }]
 readme = "README.md"
